@@ -48,9 +48,14 @@ class _HomePageState extends State<HomePage> {
                       ),
                       ElevatedButton(
                         onPressed: () {
+                          if (textcontroler.text.isEmpty) {
+                            return;
+                          }
+
                           setState(() {
                             homePageControler
                                 .adicionarTarefa(textcontroler.text);
+                            textcontroler.clear();
                           });
                         },
                         child: Text('Adicionar'),
